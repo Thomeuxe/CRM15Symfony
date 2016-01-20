@@ -1,0 +1,40 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Configuration
+ *
+ * @ORM\Table(name="configuration")
+ * @ORM\Entity
+ */
+class Configuration
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idConfiguration", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idconfiguration;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nombreJourextra", type="integer", nullable=true)
+     */
+    private $nombrejourextra;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nombreJourFrais", type="integer", nullable=true)
+     */
+    private $nombrejourfrais;
+
+
+}
+

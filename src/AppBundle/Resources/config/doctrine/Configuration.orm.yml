@@ -1,0 +1,27 @@
+AppBundle\Entity\Configuration:
+    type: entity
+    table: configuration
+    id:
+        idconfiguration:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idConfiguration
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombrejourextra:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: nombreJourextra
+        nombrejourfrais:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: nombreJourFrais
+    lifecycleCallbacks: {  }

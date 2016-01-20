@@ -1,0 +1,45 @@
+AppBundle\Entity\Boiteoeufs:
+    type: entity
+    table: boiteoeufs
+    indexes:
+        fk_BoiteOeufs_Client1_idx:
+            columns:
+                - idClient
+    id:
+        idboiteoeufs:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idBoiteOeufs
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateinstallation:
+            type: datetime
+            nullable: true
+            column: dateInstallation
+        capacite:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        seuilmini:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: seuilMini
+    manyToOne:
+        idclient:
+            targetEntity: Client
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idClient:
+                    referencedColumnName: idClient
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

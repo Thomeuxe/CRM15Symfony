@@ -1,0 +1,50 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Oeufs
+ *
+ * @ORM\Table(name="oeufs", indexes={@ORM\Index(name="fk_Oeufs_BoiteOeufs1_idx", columns={"idBoiteOeufs"})})
+ * @ORM\Entity
+ */
+class Oeufs
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idOeufs", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idoeufs;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datelivraison", type="datetime", nullable=true)
+     */
+    private $datelivraison;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="positionBoite", type="integer", nullable=true)
+     */
+    private $positionboite;
+
+    /**
+     * @var \AppBundle\Entity\Boiteoeufs
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Boiteoeufs")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idBoiteOeufs", referencedColumnName="idBoiteOeufs")
+     * })
+     */
+    private $idboiteoeufs;
+
+
+}
+

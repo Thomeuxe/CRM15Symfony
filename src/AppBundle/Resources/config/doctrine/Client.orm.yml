@@ -1,0 +1,73 @@
+AppBundle\Entity\Client:
+    type: entity
+    table: client
+    id:
+        idclient:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idClient
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: Nom
+        prenom:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: Prenom
+        telephone:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: Telephone
+        rue:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: Rue
+        numero:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: Numero
+        codepostal:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: CodePostal
+        ville:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: Ville
+    manyToMany:
+        idlivreur:
+            targetEntity: Livreur
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: idclient
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

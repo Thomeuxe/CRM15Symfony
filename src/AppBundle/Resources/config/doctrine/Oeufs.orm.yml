@@ -1,0 +1,39 @@
+AppBundle\Entity\Oeufs:
+    type: entity
+    table: oeufs
+    indexes:
+        fk_Oeufs_BoiteOeufs1_idx:
+            columns:
+                - idBoiteOeufs
+    id:
+        idoeufs:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idOeufs
+            generator:
+                strategy: IDENTITY
+    fields:
+        datelivraison:
+            type: datetime
+            nullable: true
+        positionboite:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: positionBoite
+    manyToOne:
+        idboiteoeufs:
+            targetEntity: Boiteoeufs
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idBoiteOeufs:
+                    referencedColumnName: idBoiteOeufs
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,209 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Livreur
+ *
+ * @ORM\Table(name="livreur")
+ * @ORM\Entity
+ */
+class Livreur
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idLivreur", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idlivreur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pseudo", type="string", length=45, nullable=true)
+     */
+    private $pseudo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=45, nullable=true)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=45, nullable=true)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="urlPhoto", type="string", length=200, nullable=true)
+     */
+    private $urlphoto;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
+
+
+    /**
+     * Get idlivreur
+     *
+     * @return integer
+     */
+    public function getIdlivreur()
+    {
+        return $this->idlivreur;
+    }
+
+    /**
+     * Set pseudo
+     *
+     * @param string $pseudo
+     *
+     * @return Livreur
+     */
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    /**
+     * Get pseudo
+     *
+     * @return string
+     */
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Livreur
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Livreur
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set urlphoto
+     *
+     * @param string $urlphoto
+     *
+     * @return Livreur
+     */
+    public function setUrlphoto($urlphoto)
+    {
+        $this->urlphoto = $urlphoto;
+
+        return $this;
+    }
+
+    /**
+     * Get urlphoto
+     *
+     * @return string
+     */
+    public function getUrlphoto()
+    {
+        return $this->urlphoto;
+    }
+    
+    public function __toString() {
+        return $this->nom . ' ' . $this->prenom;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $idclient;
+
+
+    /**
+     * Add idclient
+     *
+     * @param \AppBundle\Entity\Client $idclient
+     *
+     * @return Livreur
+     */
+    public function addIdclient(\AppBundle\Entity\Client $idclient)
+    {
+        $this->idclient[] = $idclient;
+
+        return $this;
+    }
+
+    /**
+     * Remove idclient
+     *
+     * @param \AppBundle\Entity\Client $idclient
+     */
+    public function removeIdclient(\AppBundle\Entity\Client $idclient)
+    {
+        $this->idclient->removeElement($idclient);
+    }
+
+    /**
+     * Get idclient
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdclient()
+    {
+        return $this->idclient;
+    }
+}

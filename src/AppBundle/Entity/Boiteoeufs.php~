@@ -1,0 +1,57 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Boiteoeufs
+ *
+ * @ORM\Table(name="boiteoeufs", indexes={@ORM\Index(name="fk_BoiteOeufs_Client1_idx", columns={"idClient"})})
+ * @ORM\Entity
+ */
+class Boiteoeufs
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idBoiteOeufs", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idboiteoeufs;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateInstallation", type="datetime", nullable=true)
+     */
+    private $dateinstallation;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="capacite", type="integer", nullable=true)
+     */
+    private $capacite;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="seuilMini", type="integer", nullable=true)
+     */
+    private $seuilmini;
+
+    /**
+     * @var \AppBundle\Entity\Client
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idClient", referencedColumnName="idClient")
+     * })
+     */
+    private $idclient;
+
+
+}
+

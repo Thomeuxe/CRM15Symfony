@@ -1,0 +1,58 @@
+AppBundle\Entity\Livreur:
+    type: entity
+    table: livreur
+    id:
+        idlivreur:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idLivreur
+            generator:
+                strategy: IDENTITY
+    fields:
+        pseudo:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        nom:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        prenom:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        urlphoto:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: urlPhoto
+    manyToMany:
+        idclient:
+            targetEntity: Client
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: idlivreur
+            joinTable:
+                name: livraison
+                joinColumns:
+                    -
+                        name: idLivreur
+                        referencedColumnName: idLivreur
+                inverseJoinColumns:
+                    -
+                        name: idClient
+                        referencedColumnName: idClient
+            orderBy: null
+    lifecycleCallbacks: {  }
